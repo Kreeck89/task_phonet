@@ -1,4 +1,4 @@
-package com.example.phonet.task.util.exception;
+package com.example.phonet.task.exception;
 
 import lombok.NoArgsConstructor;
 
