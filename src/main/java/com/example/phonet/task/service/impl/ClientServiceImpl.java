@@ -6,10 +6,18 @@ import com.example.phonet.task.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.List;
+
 @Service
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
     public ClientServiceImpl(ClientRepository clientRepository) {
@@ -29,5 +37,11 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Client getById(Long id) {
         return clientRepository.findById(id).get();
+    }
+
+    @Override
+    public List<Client> getAllClientsWithCriteria() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        return null;
     }
 }
